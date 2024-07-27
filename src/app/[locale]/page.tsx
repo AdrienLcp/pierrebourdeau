@@ -1,15 +1,8 @@
-'use client'
-
 import React from 'react'
 
-import { Button } from '@/components/button'
-import { AddIcon } from '@/icons/add'
-
 const HomePage: React.FC = () => (
-  <div style={{ marginInline: 'auto', padding: 50 }}>
-    <Button variant='filled' Icon={<AddIcon />} iconSide='right'>
-      Label
-    </Button>
+  <div style={{ marginInline: 'auto', padding: 50, display: 'flex', gap: 50 }}>
+    Bonjour je suis le colonnel Moutarde et j'ai un micro
   </div>
 )
 

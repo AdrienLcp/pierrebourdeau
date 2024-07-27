@@ -1,35 +1,22 @@
 'use client'
 
-import NextLink, { type LinkProps as NextLinkProps } from 'next/link'
+import NextLink from 'next/link'
 import React from 'react'
 
-import { DEFAULT_LOCALE, getValidLocale } from '@/i18n'
-import type { RoutePath } from '@/routes'
-import { useParams } from 'next/navigation'
+import { classNames } from '@/helpers/styles'
 
-const getHrefWithLocale = (params: Record<string, string | string[]>, path: RoutePath) => {
-  const locale = getValidLocale(params?.locale)
-  return locale === DEFAULT_LOCALE
-    ? `${path}`
-    : `/${locale}${path}`
-}
+import './link.styles.sass'
 
-type LinkProps = NextLinkProps & {
+export type LinkProps = React.ComponentProps<typeof NextLink> & {
   children?: React.ReactNode
   className?: string
-  href: RoutePath
 }
 
-export const Link: React.FC<LinkProps> = ({ children, href, ...props }) => {
-  const params = useParams()
-  const currentHref = getHrefWithLocale(params, href)
-
-  return (
-    <NextLink
-      {...props}
-      href={currentHref}
-    >
-      {children}
-    </NextLink>
-  )
-}
+export const Link: React.FC<LinkProps> = ({ children, className, ...props }) => (
+  <NextLink
+    {...props}
+    className={classNames('link', className)}
+  >
+    {children}
+  </NextLink>
+)
