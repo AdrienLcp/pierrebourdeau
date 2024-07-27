@@ -9,15 +9,7 @@ import '@/styles/base.sass'
 const RootLayout: React.FC<LayoutProps> = ({ children }) => (
   <Providers>
     <Html>
-      <body>
-        <header></header>
-
-        <main className='main'>
-          {children}
-        </main>
-
-        <footer></footer>
-      </body>
+      {children}
     </Html>
   </Providers>
 )

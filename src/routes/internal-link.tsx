@@ -24,10 +24,7 @@ export const InternalLink: React.FC<InternalLinkProps> = ({ children, href, ...p
   const currentHref = getHrefWithLocale(params, href)
 
   return (
-    <Link
-      {...props}
-      href={currentHref}
-    >
+    <Link {...props} href={currentHref}>
       {children}
     </Link>
   )
