@@ -6,7 +6,7 @@ import { LogoIcon } from '@/icons/logo'
 export const Header: React.FC = () => {
   return (
     <div className='header'>
-      test header <LogoIcon />
+      <LogoIcon />
     </div>
   )
 }
