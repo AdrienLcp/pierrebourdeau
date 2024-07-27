@@ -1,0 +1,16 @@
+@mixin color-transition
+  transition-duration: var(--transition-200, 0)
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke
+  transition-timing-function: var(--timing, ease-in-out)
+
+@mixin disabled
+  pointer-events: none
+  user-select: none
+
+@mixin focusable
+  &:focus
+    outline: none
+
+  &[data-focus-visible]
+    outline: var(--stroke-thick, 2px) solid var(--neutral-foreground-primary-selected, #171716)
+    outline-offset: var(--stroke-thick, 2px)

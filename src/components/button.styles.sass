@@ -1,0 +1,75 @@
+@import '@/styles/mixins'
+@import '@/styles/typography'
+
+.button
+  @include body
+  @include color-transition
+
+  align-items: center
+  border-radius: var(--radius-circular, 99px)
+  display: flex
+  gap: var(--spacing-xxs, 8px)
+  padding: var(--spacing-xxs, 8px) var(--spacing-s, 24px)
+
+  &.icon-left
+    padding-inline: var(--spacing-xs, 16px) var(--spacing-s, 24px)
+
+  &.icon-right
+    flex-direction: row-reverse
+    padding-inline: var(--spacing-s, 24px) var(--spacing-xs, 16px)
+
+  &.icon-size
+    justify-content: center
+    padding-inline: var(--spacing-xxs, 8px)
+
+  & path
+    @include color-transition
+    stroke: currentColor
+
+  &.filled
+    background-color: var(--neutral-background-inverted-rest, #171716)
+    color: var(--neutral-foreground-secondary-rest, #FCFFFD)
+
+    &[data-hovered]
+      background-color: var(--neutral-background-inverted-hover, #2B2B2A)
+
+    &[data-focused]
+      background-color: var(--neutral-background-inverted-rest, #171716)
+
+    &[data-pressed]
+      background-color: var(--neutral-background-inverted-pressed, #353534)
+
+    &[data-disabled]
+      background-color: var(--neutral-background-disabled-rest, #F1F6F4)
+
+  &.outlined
+    border: var(--stroke-thin, 1px) solid var(--neutral-stroke-primary-rest, #171716)
+    color: var(--neutral-foreground-primary-rest, #171716)
+
+    &[data-hovered]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+    &[data-focused]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+    &[data-pressed]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+    &[data-disabled]
+      border-color: var(--neutral-stroke-disabled-rest, #DFE3E1)
+
+  &.transparent
+    color: var(--neutral-foreground-primary-rest, #171716)
+
+    &[data-hovered]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+    &[data-focused]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+    &[data-pressed]
+      color: var(--neutral-foreground-primary-hover, #171716)
+
+  &[data-disabled]
+    @include disabled
+    color: var(--neutral-foreground-disabled-rest, #C4C8C6)

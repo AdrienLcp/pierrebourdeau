@@ -1,0 +1,27 @@
+@layer normalize, colors, sizes, fonts, typography, elevations, grids, transitions
+
+@import '@/styles/normalize.css'
+@import '@/styles/colors.sass'
+@import '@/styles/sizes.sass'
+@import '@/styles/fonts.sass'
+@import '@/styles/typography.sass'
+@import '@/styles/elevations.sass'
+@import '@/styles/grids.sass'
+@import '@/styles/transitions.sass'
+
+html
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  -webkit-tap-highlight-color: transparent
+  color-scheme: light dark
+  scroll-behavior: smooth
+  scroll-padding: var(--spacing-m, 40px)
+
+body
+  @include body
+  background-color: var(--neutral-background-primary-rest, #FCFFFD)
+  color: var(--neutral-foreground-primary-rest, #171716)
+  min-height: 100svh
+
+main
+  margin-inline: auto
