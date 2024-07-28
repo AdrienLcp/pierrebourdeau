@@ -13,6 +13,15 @@
   justify-content: center
 
 @mixin focusable
+  border-radius: var(--radius-xxs, 4px)
+
+  &:focus-visible
+    outline: var(--stroke-thick, 2px) solid var(--neutral-foreground-primary-selected, #171716)
+    outline-offset: var(--stroke-thick, 2px)
+
+@mixin react-aria-focusable
+  border-radius: var(--radius-xxs, 4px)
+
   &:focus
     outline: none
 

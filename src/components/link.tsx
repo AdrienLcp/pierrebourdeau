@@ -7,16 +7,27 @@ import { classNames } from '@/helpers/styles'
 
 import './link.styles.sass'
 
-export type LinkProps = React.ComponentProps<typeof NextLink> & {
+// Override default href prop type to allow mailto links
+type BaseLinkProps = Omit<React.ComponentProps<typeof NextLink>, 'href'>
+
+export type LinkProps = BaseLinkProps & {
   children?: React.ReactNode
   className?: string
+  href: string
 }
 
-export const Link: React.FC<LinkProps> = ({ children, className, ...props }) => (
-  <NextLink
-    {...props}
-    className={classNames('link', className)}
-  >
-    {children}
-  </NextLink>
-)
+export const Link: React.FC<LinkProps> = ({ children, className, href, ...props }) => {
+  const Component = href.includes('mailto:')
+    ? 'a'
+    : NextLink
+
+  return (
+    <Component
+      {...props}
+      className={classNames('link', className)}
+      href={href}
+    >
+      {children}
+    </Component>
+  )
+}

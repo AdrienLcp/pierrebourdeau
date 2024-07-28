@@ -1,7 +1,9 @@
+@import '@/styles/mixins'
 @import '@/styles/typography'
 
 .link
   @include body
+  @include focusable
   color: var(--neutral-foreground-primary-rest, #171716)
   text-decoration: underline
   text-underline-offset: var(--size-40, 4px)

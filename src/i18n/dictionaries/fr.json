@@ -1,5 +1,14 @@
 {
+  "contact": {
+    "work-with-me": "Travaillons ensemble"
+  },
   "metadata": {
     "title": "Pierre Bourdeau"
+  },
+  "routes": {
+    "about": "À propos",
+    "playground": "Playground",
+    "services": "Services",
+    "work": "Work"
   }
 }

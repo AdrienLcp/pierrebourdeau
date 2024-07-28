@@ -1,6 +1,7 @@
 .header
-  height: var(--header-rest-height, 146px)
   overflow: hidden
+  display: flex
+  flex-direction: column
 
   &__heading
     align-items: center
@@ -8,3 +9,7 @@
     height: var(--header-rest-height, 146px)
     justify-content: space-between
     padding: var(--spacing-m, 40px)
+
+  &__content
+    display: flex
+    flex-direction: column

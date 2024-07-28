@@ -14,10 +14,10 @@ type MotionProps = FramerMotionProps & {
   tagName?: keyof typeof motion
 }
 
-export const DEFAULT_ANIMATION_TRANSITION: FramerMotionProps['transition'] = {
+export const DEFAULT_ANIMATION_TRANSITION = {
   duration: 0.3,
   type: 'spring'
-}
+} as const
 
 /**
  * Motion component that applies a predefined animation to its children.
