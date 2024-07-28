@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { Html } from '@/app/components/html'
-import { Providers } from '@/app/components/providers'
+import { Container } from '@/app/components/container'
+import { I18nProvider } from '@/i18n/client'
 import type { LayoutProps } from '@/lib/next'
 
 import '@/styles/base.sass'
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => (
-  <Providers>
-    <Html>
+  <I18nProvider>
+    <Container>
       {children}
-    </Html>
-  </Providers>
+    </Container>
+  </I18nProvider>
 )
 
 export default RootLayout

@@ -6,13 +6,13 @@ import { Footer } from '@/app/components/footer'
 import { Header } from '@/app/components/header'
 import { useI18n } from '@/i18n/client'
 
-import './html.styles.sass'
+import './container.styles.sass'
 
-export const Html: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { currentLocale } = useI18n()
 
   return (
-    <html lang={currentLocale} dir='ltr'>
+    <html dir='ltr' lang={currentLocale}>
       <body>
         <Header />
 

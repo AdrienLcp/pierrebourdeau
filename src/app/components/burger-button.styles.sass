@@ -1,0 +1,22 @@
+@import '@/styles/mixins'
+
+.burger-button
+  @include flex-center
+  aspect-ratio: 1
+  flex-direction: column
+  gap: var(--spacing-xs, 16px)
+  position: relative
+  width: 35px
+
+  &:focus
+    outline: none
+
+  &__line
+    background-color: var(--neutral-stroke-primary-rest, #171716)
+    height: var(--stroke-thick, 2px)
+    position: absolute
+    width: 100%
+
+@media (width > 992)
+  .burger-button
+    width: 50px
