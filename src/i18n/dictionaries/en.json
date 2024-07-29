@@ -1,5 +1,18 @@
 {
+  "app": {
+    "footer": {
+      "legal-mention": "Legal mention",
+      "site-map": "Site map"
+    }
+  },
+  "components": {
+    "burger-button": {
+      "open": "Open menu",
+      "close": "Close le menu"
+    }
+  },
   "contact": {
+    "tea-over-coffee": "I prefer tea over coffee but I like to chat",
     "work-with-me": "Work with me"
   },
   "metadata": {

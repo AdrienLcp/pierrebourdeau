@@ -1,11 +1,13 @@
 import type { AnimationProps } from 'framer-motion'
 import React from 'react'
 
-import { BurgerButton } from '@/app/components/burger-button'
-import { HeaderContent } from '@/app/components/header-content'
+import { BurgerButton } from '@/components/burger-button'
+import { Logo } from '@/components/logo'
 import { DEFAULT_ANIMATION_TRANSITION, Motion } from '@/components/motion'
+import { Mailto } from '@/contact/mailto'
 import { sleep } from '@/helpers/promise'
-import { LogoIcon } from '@/icons/logo'
+import { LocaleSwitcher } from '@/i18n/locale-switcher'
+import { Navigation } from '@/routes/navigation'
 
 import './header.styles.sass'
 
@@ -24,6 +26,11 @@ const preventBodyOverflow = async (isHeaderExpanded: boolean) => {
   document.body.style.overflow = 'auto'
 }
 
+const HEADER_ANIMATIONS_TRANSITION = {
+  duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
+  type: DEFAULT_ANIMATION_TRANSITION.type
+}
+
 export const Header: React.FC = () => {
   const [isHeaderExpanded, setIsHeaderExpanded] = React.useState(false)
 
@@ -31,20 +38,14 @@ export const Header: React.FC = () => {
     animate: {
       height: isHeaderExpanded ? '100%' : 0
     },
-    transition: {
-      duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
-      type: DEFAULT_ANIMATION_TRANSITION.type
-    }
+    transition: HEADER_ANIMATIONS_TRANSITION
   }
 
   const headerAnimation: AnimationProps = {
     animate: {
       height: isHeaderExpanded ? '100vh' : `${HEADER_REST_HEIGHT_IN_PX}px`
     },
-    transition: {
-      duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
-      type: DEFAULT_ANIMATION_TRANSITION.type
-    }
+    transition: HEADER_ANIMATIONS_TRANSITION
   }
 
   React.useEffect(() => {
@@ -59,7 +60,7 @@ export const Header: React.FC = () => {
       tagName='header'
     >
       <div className='header__heading'>
-        <LogoIcon />
+        <Logo />
 
         <BurgerButton
           isActive={isHeaderExpanded}
@@ -68,7 +69,12 @@ export const Header: React.FC = () => {
       </div>
 
       <Motion {...headerExpandAnimation} className='header__content'>
-        <HeaderContent />
+        <Navigation />
+
+        <div className='header__content__footer'>
+          <LocaleSwitcher />
+          <Mailto />
+        </div>
       </Motion>
     </Motion>
   )

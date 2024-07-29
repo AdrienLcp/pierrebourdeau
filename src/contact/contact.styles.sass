@@ -1,0 +1,31 @@
+@import '@/styles/mixins'
+@import '@/styles/typography'
+
+.contact
+  align-items: center
+  display: flex
+  height: 100%
+  flex-direction: column
+  gap: var(--spacing-s, 24px)
+  justify-content: space-between
+  text-align: center
+
+  &__message
+    @include title
+
+  &__footer
+    align-items: center
+    display: flex
+    flex-direction: column
+    gap: var(--spacing-s, 24px)
+
+    &__email
+      @include link
+
+@media (width > 992px)
+  .contact
+    align-items: flex-start
+    text-align: left
+
+    &__footer
+      align-items: flex-start

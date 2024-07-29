@@ -1,8 +1,11 @@
 import React from 'react'
 
 import type { BaseIconProps } from '@/icons'
+import { METADATA } from '@/metadata'
 
-export const LogoIcon: React.FC<BaseIconProps> = ({ ...props }) => (
+import './logo.styles.sass'
+
+export const Logo: React.FC<BaseIconProps> = ({ ...props }) => (
   <svg
     {...props}
     xmlns='http://www.w3.org/2000/svg'
@@ -18,4 +21,14 @@ export const LogoIcon: React.FC<BaseIconProps> = ({ ...props }) => (
       fill='#171716'
     />
   </svg>
+)
+
+export const LogoTitle: React.FC = () => (
+  <div className='logo'>
+    <Logo />
+
+    <span className='logo__title'>
+      {METADATA.name}
+    </span>
+  </div>
 )

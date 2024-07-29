@@ -1,3 +1,5 @@
+@import '@/styles/typography'
+
 @mixin color-transition
   transition-duration: var(--transition-200, 0)
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke
@@ -18,6 +20,12 @@
   &:focus-visible
     outline: var(--stroke-thick, 2px) solid var(--neutral-foreground-primary-selected, #171716)
     outline-offset: var(--stroke-thick, 2px)
+
+@mixin link
+  @include body
+  color: var(--neutral-foreground-primary-rest, #171716)
+  text-decoration: underline
+  text-underline-offset: var(--size-40, 4px)
 
 @mixin react-aria-focusable
   border-radius: var(--radius-xxs, 4px)

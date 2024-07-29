@@ -5,6 +5,7 @@ import type { ButtonProps } from 'react-aria-components'
 
 import { DEFAULT_ANIMATION_TRANSITION, Motion } from '@/components/motion'
 import { Pressable } from '@/components/pressable'
+import { useI18n } from '@/i18n/client'
 
 import './burger-button.styles.sass'
 
@@ -13,6 +14,12 @@ type BurgerButtonProps = ButtonProps & {
 }
 
 export const BurgerButton: React.FC<BurgerButtonProps> = ({ isActive, ...props }) => {
+  const { i18n } = useI18n()
+
+  const ariaLabel = isActive
+    ? i18n('components.burger-button.close')
+    : i18n('components.burger-button.open')
+
   const burgerFirstLineAnimation = {
     animate: {
       rotate: isActive ? 45 : 0,
@@ -33,6 +40,8 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({ isActive, ...props }
     <Pressable
       {...props}
       aria-hidden
+      aria-label={ariaLabel}
+      aria-pressed={isActive}
       className='burger-button'
     >
       <Motion {...burgerFirstLineAnimation} className='burger-button__line' />

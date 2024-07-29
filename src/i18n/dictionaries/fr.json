@@ -1,5 +1,18 @@
 {
+  "app": {
+    "footer": {
+      "legal-mention": "Mentions légales",
+      "site-map": "Site map"
+    }
+  },
+  "components": {
+    "burger-button": {
+      "open": "Ouvrir le menu",
+      "close": "Fermer le menu"
+    }
+  },
   "contact": {
+    "tea-over-coffee": "Je préfère le thé au café mais j'aime discuter",
     "work-with-me": "Travaillons ensemble"
   },
   "metadata": {

@@ -1,0 +1,28 @@
+.socials
+  align-items: center
+  display: flex
+  flex-direction: column
+  gap: var(--spacing-m, 40px)
+
+  &__list
+    align-items: center
+    display: flex
+    justify-content: space-evenly
+    width: 100%
+
+    &__link
+      border: var(--stroke-thin, 1px) solid var(--neutral-foreground-primary-rest, #171716)
+      border-radius: var(--radius-circular, 99px)
+      padding: var(--spacing-s-nudge, 20px)
+
+  &__footer
+    text-align: center
+
+@media (width > 992px)
+  .socials
+    align-items: flex-start
+
+    &__list
+      justify-content: flex-start
+      gap: var(--spacing-m-nudge, 32px)
+      width: auto

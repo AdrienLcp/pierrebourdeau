@@ -1,2 +1,21 @@
 .footer
+  display: grid
+  gap: var(--spacing-l, 48px)
+  grid-template-areas: 'top-right-box' 'bottom-left-box'
   padding: var(--spacing-m, 40px)
+
+  &__top-right-box
+    grid-area: top-right-box
+
+  &__bottom-left-box
+    grid-area: bottom-left-box
+
+@media (width > 992px)
+  .footer
+    grid-template-areas: 'bottom-left-box top-right-box'
+
+    &__top-right-box
+      width: calc(50vw - calc(var(--spacing-m, 40px) + calc(var(--spacing-l, 48px) / 2)))
+
+    &__bottom-left-box
+      width: calc(50vw - calc(var(--spacing-m, 40px) + calc(var(--spacing-l, 48px) / 2)))

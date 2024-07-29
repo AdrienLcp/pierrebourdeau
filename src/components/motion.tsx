@@ -16,7 +16,7 @@ type MotionProps = FramerMotionProps & {
 
 export const DEFAULT_ANIMATION_TRANSITION = {
   duration: 0.3,
-  type: 'spring'
+  type: 'tween'
 } as const
 
 /**
