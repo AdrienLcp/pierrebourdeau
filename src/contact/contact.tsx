@@ -18,13 +18,19 @@ export const Contact: React.FC = () => {
       </p>
 
       <div className='contact__footer'>
-        <Link href={`mailto:${METADATA.email}`}>
+        <Link
+          className='contact__footer__link'
+          href={`mailto:${METADATA.email}`}
+        >
           {METADATA.email}
         </Link>
 
-        <span className='contact__footer__email'>
-          {METADATA.phone}
-        </span>
+        <Link
+          className='contact__footer__link'
+          href={`tel:${METADATA.phone.href}`}
+        >
+          {METADATA.phone.formatted}
+        </Link>
       </div>
     </div>
   )

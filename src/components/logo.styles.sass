@@ -1,9 +1,14 @@
+@import '@/styles/mixins'
 @import '@/styles/typography'
 
 .logo
+  @include color-transition
   align-items: center
   display: flex
   gap: var(--spacing-s-nudge, 20px)
+
+  &__icon path
+    @include color-transition
 
   &__title
     @include subtitle

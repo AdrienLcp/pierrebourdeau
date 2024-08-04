@@ -13,7 +13,7 @@
   },
   "contact": {
     "tea-over-coffee": "Je préfère le thé au café mais j'aime discuter",
-    "work-with-me": "Travaillons ensemble"
+    "work-with-me": "Travaillez avec moi"
   },
   "metadata": {
     "title": "Pierre Bourdeau"
@@ -22,6 +22,6 @@
     "about": "À propos",
     "playground": "Playground",
     "services": "Services",
-    "work": "Work"
+    "work": "Projets"
   }
 }

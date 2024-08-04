@@ -1,7 +1,12 @@
+@import '@/styles/mixins'
+
 .header
-  overflow: hidden
+  @include color-transition
   display: flex
   flex-direction: column
+  inset: 0 0 auto 0
+  overflow: hidden
+  position: fixed
 
   &__heading
     align-items: center
@@ -13,9 +18,24 @@
   &__content
     display: flex
     flex-direction: column
+    height: 100%
 
     &__footer
-      display: flex
       align-items: center
+      display: flex
       justify-content: space-between
       padding: var(--spacing-m, 40px)
+
+      &__mailto
+        color: var(--white, #FCFFFD)
+
+  &.expanded
+    color: var(--white, #FCFFFD)
+    background-color: var(--black, #171716)
+
+    & .header__heading
+      &__logo path
+        fill: var(--white, #FCFFFD)
+
+      &__burger-button span
+        background-color: var(--white, #FCFFFD)

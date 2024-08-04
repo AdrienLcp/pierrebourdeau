@@ -3,7 +3,7 @@
 import React from 'react'
 import { Button, type ButtonProps } from 'react-aria-components'
 
-import { getReactAriaClassName } from '@/helpers/styles'
+import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './pressable.styles.sass'
 

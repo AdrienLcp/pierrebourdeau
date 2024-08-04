@@ -38,7 +38,7 @@ export const Socials: React.FC = () => {
 
   return (
     <div className='socials'>
-      <LogoTitle />
+      <LogoTitle className='socials__logo' />
 
       <ul className='socials__list'>
         {SOCIALS.map(({ href, Icon, key, label }) => (
@@ -48,7 +48,7 @@ export const Socials: React.FC = () => {
               className='socials__list__link'
               href={href}
             >
-              <Icon />
+              <Icon className='socials__list__link__icon' />
             </Link>
           </li>
         ))}

@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
-    "framer-motion": "^11.3.19",
+    "@gsap/react": "2.1.1",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
     "negotiator": "^0.6.3",
     "next": "14.2.4",
     "react": "^18",

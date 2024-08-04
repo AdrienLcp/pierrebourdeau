@@ -4,6 +4,12 @@
   flex-direction: column
   gap: var(--spacing-m, 40px)
 
+  &__logo
+    color: var(--white, #FCFFFD)
+
+    & svg path
+      fill: var(--white, #FCFFFD)
+
   &__list
     align-items: center
     display: flex
@@ -11,9 +17,12 @@
     width: 100%
 
     &__link
-      border: var(--stroke-thin, 1px) solid var(--neutral-foreground-primary-rest, #171716)
+      border: var(--stroke-thin, 1px) solid var(--white, #FCFFFD)
       border-radius: var(--radius-circular, 99px)
       padding: var(--spacing-s-nudge, 20px)
+
+      &__icon path
+        stroke: var(--white, #FCFFFD)
 
   &__footer
     text-align: center
