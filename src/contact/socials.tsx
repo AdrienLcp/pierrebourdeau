@@ -47,6 +47,7 @@ export const Socials: React.FC = () => {
               aria-label={label}
               className='socials__list__link'
               href={href}
+              target='_blank'
             >
               <Icon className='socials__list__link__icon' />
             </Link>
@@ -55,7 +56,7 @@ export const Socials: React.FC = () => {
       </ul>
 
       <div className='socials__footer'>
-        &#169; 2022 {METADATA.name} • {i18n('app.footer.legal-mention')} • {i18n('app.footer.site-map')}
+        &#169; 2022 {METADATA.name} • {i18n('app.footer.legal-mention')}
       </div>
     </div>
   )

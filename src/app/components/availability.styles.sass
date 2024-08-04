@@ -1,0 +1,12 @@
+.availability
+  align-items: center
+  display: flex
+  gap: 10px
+  transition-property: opacity, transform
+  transition-duration: var(--transition-200, 0)
+  transition-timing-function: var(--timing, ease-in-out)
+
+  &.hidden
+    opacity: 0
+    pointer-events: none
+    transform: translateY(-50px)

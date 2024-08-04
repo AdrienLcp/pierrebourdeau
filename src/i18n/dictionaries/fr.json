@@ -1,8 +1,14 @@
 {
   "app": {
+    "header": {
+      "availability": {
+        "available": "Disponible pour freelance",
+        "unavailable": "Indisponible pour freelance"
+      },
+      "logo-link": "Aller à la page d'accueil"
+    },
     "footer": {
-      "legal-mention": "Mentions légales",
-      "site-map": "Site map"
+      "legal-mention": "Mentions légales"
     }
   },
   "components": {

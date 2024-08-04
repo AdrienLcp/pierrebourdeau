@@ -38,7 +38,11 @@ const getNavigationItems = (i18n: I18n): NavigationItem[] => ([
   }
 ])
 
-export const Navigation: React.FC = () => {
+type NavigationProps = {
+  onLinkClick?: () => void
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
   const { i18n } = useI18n()
   const navigationItems = getNavigationItems(i18n)
 
@@ -47,7 +51,7 @@ export const Navigation: React.FC = () => {
       <ul className='navigation__list'>
         {navigationItems.map((navigationItem) => (
           <li key={navigationItem.key}>
-            <NavigationLink item={navigationItem} />
+            <NavigationLink item={navigationItem} onClick={onLinkClick} />
           </li>
         ))}
       </ul>

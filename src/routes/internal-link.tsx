@@ -15,7 +15,7 @@ const getHrefWithLocale = (params: Record<string, string | string[]>, path: Rout
 }
 
 // Override base href type to accept only RoutePath
-type InternalLinkProps = Omit<LinkProps, 'href'> & {
+export type InternalLinkProps = Omit<LinkProps, 'href'> & {
   href: RoutePath
 }
 
