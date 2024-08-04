@@ -2,7 +2,8 @@ import React from 'react'
 import type { ButtonProps as ReactAriaButtonProps, ButtonRenderProps } from 'react-aria-components'
 
 import { Pressable } from '@/components/pressable'
-import { classNames, getReactAriaClassName } from '@/helpers/styles'
+import { classNames } from '@/helpers/styles'
+import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './button.styles.sass'
 
