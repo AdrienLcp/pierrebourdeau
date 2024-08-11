@@ -29,7 +29,7 @@
       "language": "en,fr"
     },
     {
-      "filename": "src/app/metadata.ts",
+      "filename": "src/metadata/index.ts",
       "language": "en,fr"
     },
     {
@@ -58,6 +58,7 @@
     "instagram",
     "Kanisson",
     "Lacourpaille",
+    "linkedin",
     "localematcher",
     "Lucide",
     "Neuton",

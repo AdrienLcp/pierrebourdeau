@@ -28,7 +28,8 @@
     "work-with-me": "Work with me"
   },
   "metadata": {
-    "title": "Pierre Bourdeau"
+    "description": "Pierre Bourdeau is a UX/UI Designer based in Paris, France. He is available for freelance work.",
+    "title": "Pierre Bourdeau - UX/UI Designer"
   },
   "routes": {
     "about": "About",

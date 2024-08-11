@@ -28,7 +28,8 @@
     "work-with-me": "Travaillez avec moi"
   },
   "metadata": {
-    "title": "Pierre Bourdeau"
+    "description": "Pierre Bourdeau, UX/UI Designer freelance à Nantes. Passionné par les designs centrés sur l'utilisateur, il crée des interfaces web et mobiles intuitives. Il collabore avec des startups et entreprises pour améliorer l'expérience utilisateur avec des méthodes qualitatives.",
+    "title": "Pierre Bourdeau - UX/UI Designer"
   },
   "routes": {
     "about": "À propos",
