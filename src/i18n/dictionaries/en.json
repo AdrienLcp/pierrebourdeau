@@ -8,7 +8,7 @@
       "logo-link": "Go to homepage"
     },
     "footer": {
-      "legal-mention": "Legal mention"
+      "therms-of-use": "Therms of use"
     }
   },
   "components": {
@@ -18,6 +18,12 @@
     }
   },
   "contact": {
+    "socials": {
+      "behance": "Behance",
+      "dribbble": "Dribbble",
+      "instagram": "Instagram",
+      "linkedIn": "LinkedIn"
+    },
     "tea-over-coffee": "I prefer tea over coffee but I like to chat",
     "work-with-me": "Work with me"
   },

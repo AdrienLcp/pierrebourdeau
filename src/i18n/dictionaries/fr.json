@@ -8,7 +8,7 @@
       "logo-link": "Aller à la page d'accueil"
     },
     "footer": {
-      "legal-mention": "Mentions légales"
+      "therms-of-use": "Mentions légales"
     }
   },
   "components": {
@@ -18,6 +18,12 @@
     }
   },
   "contact": {
+    "socials": {
+      "behance": "Behance",
+      "dribbble": "Dribbble",
+      "instagram": "Instagram",
+      "linkedIn": "LinkedIn"
+    },
     "tea-over-coffee": "Je préfère le thé au café mais j'aime discuter",
     "work-with-me": "Travaillez avec moi"
   },

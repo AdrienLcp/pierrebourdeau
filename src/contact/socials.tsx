@@ -4,44 +4,56 @@ import React from 'react'
 
 import { Link } from '@/components/link'
 import { LogoTitle } from '@/components/logo'
+import type { ValueOf } from '@/helpers/types'
 import { useI18n } from '@/i18n/client'
-import type { BaseIconProps } from '@/icons'
-import { AddIcon } from '@/icons/add'
+import { BehanceIcon, DribbbleIcon, InstagramIcon, LinkedinIcon, type BaseIconProps } from '@/icons'
 import { METADATA } from '@/metadata'
 
 import './socials.styles.sass'
 
 type Social = {
-  href: string
+  href: ValueOf<typeof METADATA.socials>
   Icon: React.FC<BaseIconProps>
-  key: 'instagram' | 'linkedin'
+  key: 'behance' | 'dribbble' | 'instagram' | 'linkedin'
   label: string
 }
 
-const SOCIALS: Social[] = [
-  {
-    href: METADATA.socials.instagram,
-    Icon: AddIcon,
-    key: 'instagram',
-    label: 'Instagram'
-  },
-  {
-    href: METADATA.socials.linkedin,
-    Icon: AddIcon,
-    key: 'linkedin',
-    label: 'Linkedin'
-  }
-]
-
 export const Socials: React.FC = () => {
   const { i18n } = useI18n()
+
+  const socials: Social[] = [
+    {
+      href: METADATA.socials.linkedin,
+      Icon: LinkedinIcon,
+      key: 'linkedin',
+      label: i18n('contact.socials.linkedIn')
+    },
+    {
+      href: METADATA.socials.dribbble,
+      Icon: DribbbleIcon,
+      key: 'dribbble',
+      label: i18n('contact.socials.dribbble')
+    },
+    {
+      href: METADATA.socials.behance,
+      Icon: BehanceIcon,
+      key: 'behance',
+      label: i18n('contact.socials.behance')
+    },
+    {
+      href: METADATA.socials.instagram,
+      Icon: InstagramIcon,
+      key: 'instagram',
+      label: i18n('contact.socials.instagram')
+    }
+  ]
 
   return (
     <div className='socials'>
       <LogoTitle className='socials__logo' />
 
       <ul className='socials__list'>
-        {SOCIALS.map(({ href, Icon, key, label }) => (
+        {socials.map(({ href, Icon, key, label }) => (
           <li key={key}>
             <Link
               aria-label={label}
@@ -56,7 +68,7 @@ export const Socials: React.FC = () => {
       </ul>
 
       <div className='socials__footer'>
-        &#169; 2022 {METADATA.name} • {i18n('app.footer.legal-mention')}
+        &#169; 2022 {METADATA.name} • {i18n('app.footer.therms-of-use')}
       </div>
     </div>
   )
