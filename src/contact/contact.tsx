@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Link } from '@/components/link'
+import { AnimatedLink } from '@/components/animated-link'
 import { useI18n } from '@/i18n/client'
 import { METADATA } from '@/metadata'
 
@@ -18,19 +18,17 @@ export const Contact: React.FC = () => {
       </p>
 
       <div className='contact__footer'>
-        <Link
-          className='contact__footer__link'
+        <AnimatedLink
+          color='var(--neutral-foreground-inverted-rest, #FCFFFD)'
           href={`mailto:${METADATA.email}`}
-        >
-          {METADATA.email}
-        </Link>
+          label={METADATA.email}
+        />
 
-        <Link
-          className='contact__footer__link'
+        <AnimatedLink
+          color='var(--neutral-foreground-inverted-rest, #FCFFFD)'
           href={`tel:${METADATA.phone.href}`}
-        >
-          {METADATA.phone.formatted}
-        </Link>
+          label={METADATA.phone.formatted}
+        />
       </div>
     </div>
   )

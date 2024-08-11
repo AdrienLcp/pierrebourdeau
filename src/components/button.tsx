@@ -1,6 +1,9 @@
+'use client'
+
 import React from 'react'
 import type { ButtonProps as ReactAriaButtonProps, ButtonRenderProps } from 'react-aria-components'
 
+import { FlipReveal } from '@/animations/flip-reveal'
 import { Pressable } from '@/components/pressable'
 import { classNames } from '@/helpers/styles'
 import { getReactAriaClassName } from '@/lib/react-aria'
@@ -62,14 +65,29 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   variant = 'filled',
   ...props
-}) => (
-  <Pressable
-    {...props}
-    className={(values) => getButtonClassName(values, className, iconSide, variant, size, Icon)}
-  >
-    <>
-      {Icon}
-      {children}
-    </>
-  </Pressable>
-)
+}) => {
+  const [isButtonHovered, setIsButtonHovered] = React.useState(false)
+
+  return (
+    <Pressable
+      {...props}
+      className={(values) => getButtonClassName(values, className, iconSide, variant, size, Icon)}
+      onHoverEnd={() => setIsButtonHovered(false)}
+      onHoverStart={() => setIsButtonHovered(true)}
+    >
+      <>
+        {Icon}
+
+        {typeof children !== 'string'
+          ? children
+          : <FlipReveal
+            color={variant === 'filled' ? 'var(--neutral-foreground-secondary-rest, #FCFFFD)' : 'var(--neutral-foreground-primary-rest, #171716)'}
+            isActive={isButtonHovered}
+          >
+            {children}
+          </FlipReveal>
+        }
+      </>
+    </Pressable>
+  )
+}

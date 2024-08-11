@@ -16,18 +16,12 @@ export type LinkProps = BaseLinkProps & {
   href: string
 }
 
-export const Link: React.FC<LinkProps> = ({ children, className, href, ...props }) => {
-  // const Component = href.includes('mailto:')
-  //   ? 'a'
-  //   : NextLink
-
-  return (
-    <NextLink
-      {...props}
-      className={classNames('link', className)}
-      href={href}
-    >
-      {children}
-    </NextLink>
-  )
-}
+export const Link: React.FC<LinkProps> = ({ children, className, href, ...props }) => (
+  <NextLink
+    {...props}
+    className={classNames('link', className)}
+    href={href}
+  >
+    {children}
+  </NextLink>
+)
