@@ -2,6 +2,20 @@
 
 .navigation-link
   @include display-1
+  align-items: center
   color: var(--neutral-foreground-inverted-rest, #FCFFFD)
+  display: flex
+  position: relative
   text-decoration: none
   text-transform: uppercase
+
+  &__image-wrapper
+    display: inline-block
+    transition: width var(--transition-150, 0) var(--timing, ease-in-out)
+    width: 0
+
+    & path
+      stroke: var(--neutral-foreground-inverted-rest, #FCFFFD)
+
+  &:hover .navigation-link__image-wrapper
+    width: 1em

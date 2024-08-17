@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-import { ROUTES, type RouteKey, type RoutePath } from '@/routes'
-import type { I18n } from '@/i18n'
+import type { ImageSrc } from '@/components/image'
 import { useI18n } from '@/i18n/client'
+import { ROUTES, type RouteKey, type RoutePath } from '@/routes'
 import { NavigationLink } from '@/routes/navigation-link'
 
 import './navigation.styles.sass'
@@ -12,31 +12,9 @@ import './navigation.styles.sass'
 export type NavigationItem = {
   key: RouteKey
   href: RoutePath
+  image: ImageSrc
   label: string
 }
-
-const getNavigationItems = (i18n: I18n): NavigationItem[] => ([
-  {
-    key: 'work',
-    href: ROUTES.work,
-    label: i18n('routes.work')
-  },
-  {
-    key: 'services',
-    href: ROUTES.services,
-    label: i18n('routes.services')
-  },
-  {
-    key: 'playground',
-    href: ROUTES.playground,
-    label: i18n('routes.playground')
-  },
-  {
-    key: 'about',
-    href: ROUTES.about,
-    label: i18n('routes.about')
-  }
-])
 
 type NavigationProps = {
   onLinkClick?: () => void
@@ -44,7 +22,33 @@ type NavigationProps = {
 
 export const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
   const { i18n } = useI18n()
-  const navigationItems = getNavigationItems(i18n)
+
+  const navigationItems: NavigationItem[] = [
+    {
+      key: 'work',
+      href: ROUTES.work,
+      image: '',
+      label: i18n('routes.work')
+    },
+    {
+      key: 'services',
+      href: ROUTES.services,
+      image: '',
+      label: i18n('routes.services')
+    },
+    {
+      key: 'playground',
+      href: ROUTES.playground,
+      image: '',
+      label: i18n('routes.playground')
+    },
+    {
+      key: 'about',
+      href: ROUTES.about,
+      image: '',
+      label: i18n('routes.about')
+    }
+  ]
 
   return (
     <nav className='navigation'>

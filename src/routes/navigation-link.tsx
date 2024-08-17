@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Image } from '@/components/image'
+import { isValidString } from '@/helpers/strings'
 import { classNames } from '@/helpers/styles'
 import { InternalLink, type InternalLinkProps } from '@/routes/internal-link'
 import type { NavigationItem } from '@/routes/navigation'
@@ -10,12 +12,33 @@ type NavigationLinkProps = Omit<InternalLinkProps, 'href'> & {
   item: NavigationItem
 }
 
-export const NavigationLink: React.FC<NavigationLinkProps> = ({ className, item, ...props }) => (
-  <InternalLink
-    {...props}
-    className={classNames('navigation-link', className)}
-    href={item.href}
-  >
-    {item.label}
-  </InternalLink>
-)
+export const NavigationLink: React.FC<NavigationLinkProps> = ({ className, item, ...props }) => {
+  const label = item.label
+
+  if (!isValidString(label)) {
+    return null
+  }
+
+  const labelCharacterHalfCount = Math.round(label.length / 2)
+  const labelFirstSlice = label.slice(0, labelCharacterHalfCount)
+  const labelSecondSlice = label.slice(labelCharacterHalfCount)
+
+  return (
+    <InternalLink
+      {...props}
+      className={classNames('navigation-link', className)}
+      href={item.href}
+    >
+      <span>{labelFirstSlice}</span>
+
+      <div className='navigation-link__image-wrapper'>
+        <Image
+          alt={label}
+          src={item.image}
+        />
+      </div>
+
+      <span>{labelSecondSlice}</span>
+    </InternalLink>
+  )
+}

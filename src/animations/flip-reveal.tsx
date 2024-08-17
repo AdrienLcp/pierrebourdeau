@@ -4,6 +4,8 @@ import { classNames } from '@/helpers/styles'
 
 import './flip-reveal.styles.sass'
 
+const FLIP_REVEAL_ANIMATION_DURATION_IN_MS = 450
+
 export type FlipRevealProps = React.PropsWithChildren & {
   color?: string
   fontSize?: string
@@ -21,11 +23,12 @@ export const FlipReveal: React.FC<FlipRevealProps> = ({
   }
 
   const string = children.trim()
+  const delayPerCharacter = FLIP_REVEAL_ANIMATION_DURATION_IN_MS / string.length
 
   return (
     <div className={classNames('flip-reveal', isActive && 'active')}>
       {string.split('').map((char, index) => {
-        const delay = `${string.length * index}ms`
+        const delay = `${delayPerCharacter * index}ms`
 
         const style: Record<string, string> = {
           '--flip-reveal-color': color,
