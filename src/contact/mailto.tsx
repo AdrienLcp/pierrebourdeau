@@ -7,7 +7,7 @@ import { useI18n } from '@/i18n/client'
 import { METADATA } from '@/metadata'
 import { AnimatedLink } from '@/components/animated-link'
 
-type MailtoProps = Omit<LinkProps, 'href'>
+type MailtoProps = Omit<LinkProps, 'children' | 'href'>
 
 export const Mailto: React.FC<MailtoProps> = ({ ...props }) => {
   const { i18n } = useI18n()

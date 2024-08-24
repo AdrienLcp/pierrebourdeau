@@ -1,27 +1,19 @@
 'use client'
 
-import NextLink from 'next/link'
 import React from 'react'
+import { Link as ReactAriaLink, type LinkProps as ReactAriaLinkProps } from 'react-aria-components'
 
-import { classNames } from '@/helpers/styles'
+import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './link.styles.sass'
 
-// Override default href prop type to allow mailto links
-type BaseLinkProps = Omit<React.ComponentProps<typeof NextLink>, 'href'>
+export type LinkProps = ReactAriaLinkProps
 
-export type LinkProps = BaseLinkProps & {
-  children?: React.ReactNode
-  className?: string
-  href: string
-}
-
-export const Link: React.FC<LinkProps> = ({ children, className, href, ...props }) => (
-  <NextLink
+export const Link: React.FC<LinkProps> = ({ children, className, ...props }) => (
+  <ReactAriaLink
     {...props}
-    className={classNames('link', className)}
-    href={href}
+    className={(values) => getReactAriaClassName(values, className, 'link')}
   >
     {children}
-  </NextLink>
+  </ReactAriaLink>
 )

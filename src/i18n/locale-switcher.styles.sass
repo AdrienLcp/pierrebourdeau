@@ -1,13 +1,14 @@
-@import '@/styles/typography'
-
 .locale-switcher
   align-items: center
   display: flex
   gap: var(--spacing-xxs, 8px)
 
-  &__button
-    @include body
+  &__link
     color: var(--neutral-foreground-tertiary-rest, #B7BBB8)
+    text-decoration: none
+
+    &[data-focus-visible]
+      outline-color: var(--neutral-foreground-inverted-rest, #FCFFFD)
 
     &.active
       color: var(--neutral-foreground-inverted-rest, #FCFFFD)

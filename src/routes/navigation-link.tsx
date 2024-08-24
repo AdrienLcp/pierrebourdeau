@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Image } from '@/components/image'
 import { isValidString } from '@/helpers/strings'
-import { classNames } from '@/helpers/styles'
+import { getReactAriaClassName } from '@/lib/react-aria'
 import { InternalLink, type InternalLinkProps } from '@/routes/internal-link'
 import type { NavigationItem } from '@/routes/navigation'
 
@@ -26,7 +26,7 @@ export const NavigationLink: React.FC<NavigationLinkProps> = ({ className, item,
   return (
     <InternalLink
       {...props}
-      className={classNames('navigation-link', className)}
+      className={(values) => getReactAriaClassName(values, className, 'navigation-link')}
       href={item.href}
     >
       <span>{labelFirstSlice}</span>

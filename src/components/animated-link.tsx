@@ -1,16 +1,17 @@
 'use client'
 
-import Link from 'next/link'
 import React from 'react'
+import { Link } from 'react-aria-components'
 
 import { FlipReveal, type FlipRevealProps } from '@/animations/flip-reveal'
-import { classNames } from '@/helpers/styles'
+import type { LinkProps } from '@/components/link'
+import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './animated-link.styles.sass'
 
 type AnimatedLinkProps = FlipRevealProps & {
-  className?: string
-  href: string
+  className?: LinkProps['className']
+  href: LinkProps['href']
   label: string
 }
 
@@ -28,7 +29,7 @@ export const AnimatedLink: React.FC<AnimatedLinkProps> = ({
 
   return (
     <Link
-      className={classNames('animated-link', className)}
+      className={(values) => getReactAriaClassName(values, className, 'animated-link')}
       href={href}
       style={linkStyle}
     >

@@ -55,7 +55,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
       <ul className='navigation__list'>
         {navigationItems.map((navigationItem) => (
           <li key={navigationItem.key}>
-            <NavigationLink item={navigationItem} onClick={onLinkClick} />
+            <NavigationLink item={navigationItem} onPress={onLinkClick} />
           </li>
         ))}
       </ul>

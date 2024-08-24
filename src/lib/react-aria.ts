@@ -1,9 +1,10 @@
-import type { ButtonRenderProps } from 'react-aria-components'
+import type { ButtonRenderProps, LinkRenderProps } from 'react-aria-components'
 
 import { classNames, type ClassNames } from '@/helpers/styles'
 
 type ElementRenderProps
   = ButtonRenderProps
+  | LinkRenderProps
 
 type RenderPropsValues <T extends ElementRenderProps> = T & {
   defaultClassName: string | undefined

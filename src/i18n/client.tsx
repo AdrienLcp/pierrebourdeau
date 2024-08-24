@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import { I18nProvider as ReactAriaI18nProvider } from 'react-aria'
 
@@ -15,7 +15,7 @@ type I18nContextValue = {
   i18n: I18n
 }
 
-const getRedirectPathname = (pathname: string | null, locale: Locale) => {
+export const getRedirectPathname = (pathname: string | null, locale: Locale) => {
   if (!isValidString(pathname)) {
     return '/'
   }
@@ -46,18 +46,10 @@ export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   const [currentLocale, setCurrentLocale] = React.useState<Locale>(DEFAULT_LOCALE)
 
   const pathname = usePathname()
-  const router = useRouter()
 
   const changeLocale = (newLocale: Locale) => {
-    if (!isLocale(newLocale)) {
-      return
-    }
-
-    const newPathname = getRedirectPathname(pathname, newLocale)
-
-    if (newPathname !== pathname) {
+    if (isLocale(newLocale)) {
       setCurrentLocale(newLocale)
-      router.push(newPathname)
     }
   }
 
