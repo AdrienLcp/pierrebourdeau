@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
+import { useLocale } from 'react-aria-components'
 
 import { Footer } from '@/app/components/footer'
 import { Header, HEADER_REST_HEIGHT_IN_PX } from '@/app/components/header'
-import { useI18n } from '@/i18n/client'
 
 import './container.styles.sass'
 
@@ -13,12 +13,12 @@ const globalStyleVariables: Record<string, string | number> = {
 }
 
 export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { currentLocale } = useI18n()
+  const { direction, locale } = useLocale()
 
   return (
     <html
-      dir='ltr'
-      lang={currentLocale}
+      dir={direction}
+      lang={locale}
       style={globalStyleVariables}
     >
       <body>

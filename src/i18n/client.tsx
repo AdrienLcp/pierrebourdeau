@@ -2,11 +2,12 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
+import { I18nProvider as ReactAriaI18nProvider } from 'react-aria'
 
 import { useProvidedContext } from '@/helpers/contexts'
 import { getStoredItem } from '@/helpers/storage'
 import { isValidString } from '@/helpers/strings'
-import { DEFAULT_LOCALE, getI18n, isLocale, isPathnameMissingLocale, type I18n, type Locale } from '@/i18n'
+import { DEFAULT_LOCALE, getI18n, getLocale, isLocale, isPathnameMissingLocale, type I18n, type Locale } from '@/i18n'
 
 type I18nContextValue = {
   changeLocale: (newLocale: Locale) => void
@@ -89,7 +90,9 @@ export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
   return (
     <I18nContext.Provider value={{ changeLocale, currentLocale, i18n }}>
-      {children}
+      <ReactAriaI18nProvider locale={getLocale(currentLocale)}>
+        {children}
+      </ReactAriaI18nProvider>
     </I18nContext.Provider>
   )
 }

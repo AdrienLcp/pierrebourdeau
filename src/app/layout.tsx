@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import React from 'react'
 
 import { Container } from '@/app/components/container'
+import { Providers } from '@/app/components/providers'
 import { getBaseMetadata } from '@/metadata'
-import { I18nProvider } from '@/i18n/client'
 import type { LayoutProps } from '@/lib/next'
 
 import '@/styles/base.sass'
@@ -14,12 +14,14 @@ export const metadata: Metadata = {
   ...baseMetadata
 }
 
-const RootLayout: React.FC<LayoutProps> = ({ children }) => (
-  <I18nProvider>
-    <Container>
-      {children}
-    </Container>
-  </I18nProvider>
-)
+const RootLayout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <Providers>
+      <Container>
+        {children}
+      </Container>
+    </Providers>
+  )
+}
 
 export default RootLayout

@@ -59,3 +59,12 @@ export const getI18n = (locale: Locale): I18n => {
   return buildI18n(dictionary, locale)
 }
 
+const locales: Record<Locale, `${Locale}-${string}`> = {
+  en: 'en-US',
+  fr: 'fr-FR'
+}
+
+export const getLocale = (maybeLocale: Locale) => {
+  const locale = getValidLocale(maybeLocale)
+  return locales[locale] ?? locales[DEFAULT_LOCALE]
+}
