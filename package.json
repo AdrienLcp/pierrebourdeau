@@ -3,12 +3,14 @@
     "@formatjs/intl-localematcher": "^0.5.4",
     "@gsap/react": "2.1.1",
     "gsap": "file:gsap-bonus.tgz",
+    "lucide-react": "^0.436.0",
     "negotiator": "^0.6.3",
     "next": "14.2.4",
     "react": "^18",
     "react-aria": "^3.34.3",
     "react-aria-components": "^1.3.3",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swiper": "^11.1.10"
   },
   "devDependencies": {
     "@types/negotiator": "^0.6.3",

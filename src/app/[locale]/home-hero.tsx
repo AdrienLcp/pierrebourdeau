@@ -3,7 +3,6 @@
 import React from 'react'
 
 import { WordsSwitcher } from '@/animations/words-switcher'
-import { ClientsCarousel } from '@/experiences/clients-carousel'
 
 import './home-hero.styles.sass'
 
@@ -30,8 +29,6 @@ export const HomeHero: React.FC = () => {
       <div className='home-hero__row'>
         <span className='home-hero__main-display'>DESIGNER</span>
       </div>
-
-      <ClientsCarousel />
     </>
   )
 }

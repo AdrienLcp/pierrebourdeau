@@ -7,7 +7,9 @@ import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './pressable.styles.sass'
 
-export const Pressable: React.FC<ButtonProps> = ({ children, className, ...props }) => (
+export type PressableProps = ButtonProps
+
+export const Pressable: React.FC<PressableProps> = ({ children, className, ...props }) => (
   <Button {...props} className={(values) => getReactAriaClassName(values, className, 'pressable')}>
     {children}
   </Button>

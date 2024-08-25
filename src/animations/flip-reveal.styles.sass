@@ -2,12 +2,12 @@
   overflow: hidden
 
   &__character
-    color: var(--flip-reveal-color)
+    color: currentColor
     display: inline-block
-    text-shadow: 0 calc(var(--flip-reveal-font-size) + 4px) 0 var(--flip-reveal-color)
+    text-shadow: 0 calc(var(--flip-reveal-font-size) + 1em) 0 currentColor
     transition: transform .44s var(--flip-reveal-delay) var(--timing, ease-in-out)
 
   &:hover,
   &.active
     .flip-reveal__character
-      transform: translateY(calc(calc(var(--flip-reveal-font-size) + 4px) * -1))
+      transform: translateY(calc(calc(var(--flip-reveal-font-size) + 1em) * -1))

@@ -1,19 +1,19 @@
 'use client'
 
 import React from 'react'
-import type { ButtonProps as ReactAriaButtonProps, ButtonRenderProps } from 'react-aria-components'
+import type { ButtonRenderProps } from 'react-aria-components'
 
 import { FlipReveal } from '@/animations/flip-reveal'
-import { Pressable } from '@/components/pressable'
+import { Pressable, type PressableProps } from '@/components/pressable'
 import { classNames } from '@/helpers/styles'
 import { getReactAriaClassName } from '@/lib/react-aria'
 
 import './button.styles.sass'
 
-type ButtonIconSide = 'left' | 'right'
-type ButtonVariant = 'filled' | 'outlined' | 'transparent'
+export type ButtonIconSide = 'left' | 'right'
+export type ButtonVariant = 'filled' | 'outlined' | 'transparent'
 
-type ButtonProps = ReactAriaButtonProps & {
+export type BaseButtonProps = {
   /** Optional icon to display within the button. */
   Icon?: React.ReactNode
 
@@ -39,9 +39,11 @@ type ButtonProps = ReactAriaButtonProps & {
   variant?: ButtonVariant
 }
 
+type ButtonProps = BaseButtonProps & PressableProps
+
 const getButtonClassName = (
   values: ButtonRenderProps & { defaultClassName: string | undefined },
-  className: ReactAriaButtonProps['className'],
+  className: PressableProps['className'],
   iconSide: ButtonIconSide,
   variant: ButtonVariant,
   size?: 'icon',
@@ -78,14 +80,9 @@ export const Button: React.FC<ButtonProps> = ({
       <>
         {Icon}
 
-        {typeof children !== 'string'
-          ? children
-          : <FlipReveal
-            color={variant === 'filled' ? 'var(--neutral-foreground-secondary-rest, #FCFFFD)' : 'var(--neutral-foreground-primary-rest, #171716)'}
-            isActive={isButtonHovered}
-          >
-            {children}
-          </FlipReveal>
+        {typeof children === 'string'
+          ? <FlipReveal isActive={isButtonHovered}>{children}</FlipReveal>
+          : children
         }
       </>
     </Pressable>

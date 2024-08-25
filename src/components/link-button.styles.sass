@@ -1,0 +1,20 @@
+@import '@/styles/accessibility'
+@import '@/styles/pressable'
+@import '@/styles/typography'
+
+.link-button
+  @include button
+
+  &.simple-link
+    border-radius: var(--radius-xxs, 4px)
+    padding: 0
+    gap: 0
+    position: relative
+    width: fit-content
+
+    &::after
+      background-color: currentColor
+      content: ''
+      height: var(--stroke-thin, 1px)
+      inset: auto 0 calc(var(--size-40, 4px) * -1) 0
+      position: absolute

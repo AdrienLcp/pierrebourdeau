@@ -28,6 +28,17 @@
     "tea-over-coffee": "Je préfère le thé au café mais j'aime discuter",
     "work-with-me": "Travaillez avec moi"
   },
+  "experiences": {
+    "projects": {
+      "all-projects": "Tous les projets",
+      "carousel": {
+        "aria-label": "Carrousel de projets",
+        "next-slide-button-aria-label": "Projet suivant",
+        "previous-slide-button-aria-label": "Projet précédent",
+        "slider-aria-label": "Faire glisser les projets"
+      }
+    }
+  },
   "locale": {
     "switcher-aria-label": "Switch language"
   },
