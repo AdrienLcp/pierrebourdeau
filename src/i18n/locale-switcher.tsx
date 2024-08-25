@@ -10,25 +10,39 @@ import { getRedirectPathname, useI18n } from '@/i18n/client'
 
 import './locale-switcher.styles.sass'
 
-const locales: Locale[] = ['fr', 'en']
+type LocaleOption = {
+  key: Locale
+  label: string
+}
+
+const locales: LocaleOption[] = [
+  { key: 'fr', label: 'Français' },
+  { key: 'en', label: 'English' }
+]
 
 export const LocaleSwitcher: React.FC = () => {
-  const { changeLocale, currentLocale } = useI18n()
+  const { changeLocale, currentLocale, i18n } = useI18n()
 
   const pathname = usePathname()
 
   return (
-    <div className='locale-switcher'>
+    <section
+      aria-label={i18n('locale.switcher-aria-label')}
+      className='locale-switcher'
+    >
       {locales.map(locale => (
         <Link
-          className={classNames('locale-switcher__link', currentLocale === locale && 'active')}
-          key={locale}
-          href={getRedirectPathname(pathname, locale)}
-          onPress={() => changeLocale(locale)}
+          aria-label={locale.label}
+          className={classNames('locale-switcher__link', currentLocale === locale.key && 'active')}
+          href={getRedirectPathname(pathname, locale.key)}
+          hrefLang={locale.key}
+          key={locale.key}
+          onPress={() => changeLocale(locale.key)}
+          rel='alternate'
         >
-          {locale.toUpperCase()}
+          {locale.key.toLocaleUpperCase(currentLocale)}
         </Link>
       ))}
-    </div>
+    </section>
   )
 }

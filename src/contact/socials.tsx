@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
+import { ListBox } from 'react-aria-components'
 
-import { Link } from '@/components/link'
+import { ListItem } from '@/components/list'
 import { LogoTitle } from '@/components/logo'
 import type { ValueOf } from '@/helpers/types'
 import { useI18n } from '@/i18n/client'
@@ -52,20 +53,23 @@ export const Socials: React.FC = () => {
     <div className='socials'>
       <LogoTitle className='socials__logo' />
 
-      <ul className='socials__list'>
-        {socials.map(({ href, Icon, key, label }) => (
-          <li key={key}>
-            <Link
-              aria-label={label}
-              className='socials__list__link'
-              href={href}
-              target='_blank'
-            >
-              <Icon className='socials__list__link__icon' />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <ListBox
+        aria-label={i18n('contact.socials.aria-label')}
+        className='socials__list'
+        items={socials}
+      >
+        {({ href, Icon, key, label }) => (
+          <ListItem
+            aria-label={label}
+            className='socials__list__link'
+            href={href}
+            key={key}
+            target='_blank'
+          >
+            <Icon className='socials__list__link__icon' />
+          </ListItem>
+        )}
+      </ListBox>
 
       <div className='socials__footer'>
         &#169; 2022 {METADATA.name} • {i18n('app.footer.therms-of-use')}

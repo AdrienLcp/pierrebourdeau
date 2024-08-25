@@ -3,6 +3,7 @@
 import React from 'react'
 
 import type { ImageSrc } from '@/components/image'
+import { Link } from '@/components/link'
 import { useI18n } from '@/i18n/client'
 import { ROUTES, type RouteKey, type RoutePath } from '@/routes'
 import { NavigationLink } from '@/routes/navigation-link'
@@ -53,9 +54,15 @@ export const Navigation: React.FC<NavigationProps> = ({ onLinkClick }) => {
   return (
     <nav className='navigation'>
       <ul className='navigation__list'>
-        {navigationItems.map((navigationItem) => (
+        {navigationItems.map(navigationItem => (
           <li key={navigationItem.key}>
-            <NavigationLink item={navigationItem} onPress={onLinkClick} />
+            <Link
+              aria-label={navigationItem.label}
+              href={navigationItem.href}
+              onPress={onLinkClick}
+            >
+              <NavigationLink item={navigationItem}/>
+            </Link>
           </li>
         ))}
       </ul>

@@ -8,6 +8,7 @@ import { useProvidedContext } from '@/helpers/contexts'
 import { getStoredItem } from '@/helpers/storage'
 import { isValidString } from '@/helpers/strings'
 import { DEFAULT_LOCALE, getI18n, getLocale, isLocale, isPathnameMissingLocale, type I18n, type Locale } from '@/i18n'
+import type { RoutePath } from '@/routes'
 
 type I18nContextValue = {
   changeLocale: (newLocale: Locale) => void
@@ -38,6 +39,12 @@ export const getRedirectPathname = (pathname: string | null, locale: Locale) => 
   const segments = pathname.split('/')
   segments[1] = locale
   return segments.join('/')
+}
+
+export const getHrefWithLocale = (path: RoutePath, locale: Locale) => {
+  return locale === DEFAULT_LOCALE
+    ? `${path}`
+    : `/${locale}${path}`
 }
 
 const I18nContext = React.createContext<I18nContextValue | null>(null)

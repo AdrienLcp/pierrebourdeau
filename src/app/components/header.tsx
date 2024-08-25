@@ -6,12 +6,13 @@ import React from 'react'
 import { DEFAULT_ANIMATION_EASE } from '@/animations'
 import { Availability } from '@/app/components/availability'
 import { BurgerButton } from '@/components/burger-button'
+import { Link } from '@/components/link'
 import { Logo } from '@/components/logo'
 import { Mailto } from '@/contact/mailto'
 import { classNames } from '@/helpers/styles'
 import { useI18n } from '@/i18n/client'
 import { LocaleSwitcher } from '@/i18n/locale-switcher'
-import { InternalLink } from '@/routes/internal-link'
+import { ROUTES } from '@/routes'
 import { Navigation } from '@/routes/navigation'
 
 import './header.styles.sass'
@@ -52,9 +53,9 @@ export const Header: React.FC = () => {
   return (
     <header className={classNames('header', isHeaderExpanded && 'expanded')}>
       <div className='header__heading'>
-        <InternalLink aria-label={i18n('app.header.logo-link')} href='/'>
+        <Link aria-label={i18n('app.header.logo-link')} href={ROUTES.home}>
           <Logo className='header__heading__logo' />
-        </InternalLink>
+        </Link>
 
         <Availability
           isHidden={isAvailabilityHidden || isHeaderExpanded}
@@ -68,14 +69,16 @@ export const Header: React.FC = () => {
         />
       </div>
 
-      <div className='header__content' ref={headerContentRef}>
-        <div className={classNames('header__content__wrapper', !isHeaderExpanded && 'hidden')}>
-          <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />
+      <div
+        aria-hidden={!isHeaderExpanded}
+        className={classNames('header__content', !isHeaderExpanded && 'hidden')}
+        ref={headerContentRef}
+      >
+        <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />
 
-          <div className='header__content__footer'>
-            <LocaleSwitcher />
-            <Mailto className='header__content__footer__mailto' />
-          </div>
+        <div className='header__content__footer'>
+          <LocaleSwitcher />
+          <Mailto className='header__content__footer__mailto' />
         </div>
       </div>
     </header>

@@ -1,0 +1,19 @@
+@mixin focusable
+  border-radius: var(--radius-xxs, 4px)
+  outline: var(--stroke-thick, 2px) none currentColor
+  outline-offset: var(--stroke-thick, 2px)
+
+  &:focus-visible:not([data-focused]),
+  &[data-focus-visible]
+    outline-style: solid
+
+@mixin hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0

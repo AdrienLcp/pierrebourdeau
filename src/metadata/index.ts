@@ -10,8 +10,8 @@ export const METADATA = {
     href: '+33695210163'
   },
   socials: {
-    behance: '',
-    dribbble: '',
+    behance: 'https://www.behance.net/',
+    dribbble: 'https://dribbble.com/',
     instagram: 'https://www.instagram.com/pierre_bourdeau/',
     linkedin: 'https://www.linkedin.com/in/uxpierrebourdeau/'
   }
