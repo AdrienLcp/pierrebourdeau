@@ -1,5 +1,7 @@
 import React from 'react'
+
 import type { Style } from '@/helpers/styles'
+
 import './words-switcher.styles.sass'
 
 type WordsSwitcherProps = {

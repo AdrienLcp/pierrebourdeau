@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { classNames } from '@/helpers/styles'
-import type { BaseIconProps } from '@/icons'
+import type { IconProps } from '@/icons'
 import { METADATA } from '@/metadata'
 
 import './logo.styles.sass'
 
-export const Logo: React.FC<BaseIconProps> = ({ className, color = '#171716', ...props }) => (
+export const Logo: React.FC<IconProps> = ({ className, color = '#171716', ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     width='37'
@@ -25,7 +25,7 @@ export const Logo: React.FC<BaseIconProps> = ({ className, color = '#171716', ..
   </svg>
 )
 
-export const LogoTitle: React.FC<BaseIconProps> = ({ className, ...props }) => (
+export const LogoTitle: React.FC<IconProps> = ({ className, ...props }) => (
   <div className={classNames('logo', className)}>
     <Logo {...props} />
 
