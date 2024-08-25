@@ -53,8 +53,12 @@ export const Header: React.FC = () => {
   return (
     <header className={classNames('header', isHeaderExpanded && 'expanded')}>
       <div className='header__heading'>
-        <Link aria-label={i18n('app.header.logo-link')} href={ROUTES.home}>
-          <Logo className='header__heading__logo' />
+        <Link
+          aria-label={i18n('app.header.logo-link')}
+          className='header__heading__link'
+          href={ROUTES.home}
+        >
+          <Logo className='header__heading__link__logo' />
         </Link>
 
         <Availability

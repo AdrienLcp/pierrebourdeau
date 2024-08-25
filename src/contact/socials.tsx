@@ -7,14 +7,14 @@ import { ListItem } from '@/components/list'
 import { LogoTitle } from '@/components/logo'
 import type { ValueOf } from '@/helpers/types'
 import { useI18n } from '@/i18n/client'
-import { BehanceIcon, DribbbleIcon, InstagramIcon, LinkedinIcon, type BaseIconProps } from '@/icons'
+import { BehanceIcon, DribbbleIcon, InstagramIcon, LinkedinIcon, type IconProps } from '@/icons'
 import { METADATA } from '@/metadata'
 
 import './socials.styles.sass'
 
 type Social = {
   href: ValueOf<typeof METADATA.socials>
-  Icon: React.FC<BaseIconProps>
+  Icon: React.FC<IconProps>
   key: 'behance' | 'dribbble' | 'instagram' | 'linkedin'
   label: string
 }
@@ -66,7 +66,7 @@ export const Socials: React.FC = () => {
             key={key}
             target='_blank'
           >
-            <Icon className='socials__list__link__icon' />
+            <Icon color='var(--neutral-foreground-inverted-rest, #FCFFFD)' />
           </ListItem>
         )}
       </ListBox>

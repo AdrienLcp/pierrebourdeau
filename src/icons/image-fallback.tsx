@@ -1,12 +1,10 @@
 import React from 'react'
 
-import type { BaseIconProps } from '@/icons'
+import { type IconProps, DEFAULT_SVG_PROPS } from '@/icons'
 
-export const ImageFallbackIcon: React.FC<BaseIconProps> = ({ ...props }) => (
+export const ImageFallbackIcon: React.FC<IconProps> = ({ ...props }) => (
   <svg
-    fill='none'
-    viewBox='0 0 24 24'
-    xmlns='http://www.w3.org/2000/svg'
+    {...DEFAULT_SVG_PROPS}
     {...props}
   >
     <path

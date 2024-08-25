@@ -18,6 +18,9 @@
     justify-content: space-between
     padding: var(--spacing-m, 40px)
 
+    &__link
+      outline-offset: var(--spacing-xs, 16px)
+
   &__content
     display: flex
     flex-direction: column
@@ -41,7 +44,7 @@
     color: var(--neutral-foreground-inverted-rest, #FCFFFD)
 
     & .header__heading
-      &__logo path
+      &__link__logo path
         fill: var(--neutral-foreground-inverted-rest, #FCFFFD)
 
       &__burger-button span

@@ -1,0 +1,42 @@
+'use client'
+
+import React from 'react'
+
+import { WordsSwitcher } from '@/animations/words-switcher'
+
+import './home-hero.styles.sass'
+
+export const HomeHero: React.FC = () => {
+  return (
+    <>
+      <div className='home-hero__row first'>
+        <span className='home-hero__main-display'>
+          USER
+        </span>
+
+        <span className='home-hero__small-display'>
+          I move pixels to make people&apos;s lives easier
+        </span>
+      </div>
+
+      <div className='home-hero__row second'>
+        {/* <span className='home-hero__main-display'>
+          EXPERIENCE
+        </span>
+
+        <span className='home-hero__main-display'>
+          INTERFACE
+        </span> */}
+
+        <WordsSwitcher
+          wordClassName='home-hero__main-display'
+          words={['EXPERIENCE', 'INTERFACE']}
+        />
+      </div>
+
+      <div className='home-hero__row'>
+        <span className='home-hero__main-display'>DESIGNER</span>
+      </div>
+    </>
+  )
+}

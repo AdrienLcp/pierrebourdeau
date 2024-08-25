@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { DEFAULT_SVG_COLOR, getSvgSizeProps, type BaseIconProps } from '@/icons'
+import { type IconProps, DEFAULT_SVG_COLOR, DEFAULT_SVG_PROPS } from '@/icons'
 
-export const InstagramIcon: React.FC<BaseIconProps> = ({ color = DEFAULT_SVG_COLOR, ...props }) => (
+export const InstagramIcon: React.FC<IconProps> = ({ color = DEFAULT_SVG_COLOR, ...props }) => (
   <svg
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...getSvgSizeProps()}
+    {...DEFAULT_SVG_PROPS}
     {...props}
   >
     <g id='Social Media'>
