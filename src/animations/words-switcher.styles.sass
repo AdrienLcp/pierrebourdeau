@@ -1,9 +1,10 @@
 .words-switcher
-  position: relative
-  overflow: hidden
   height: 1.3em
+  overflow: hidden
+  position: relative
+  white-space: nowrap
 
   &__character
-    display: inline-block
     animation: switch-words var(--animation-duration, 8s) infinite
     animation-delay: calc(var(--character-index) * 0.1s)
+    display: inline-block

@@ -6,7 +6,7 @@ import './words-switcher.styles.sass'
 
 type WordsSwitcherProps = {
   wordClassName?: string
-  words: string[]
+  words: Array<string>
 }
 
 export const WordsSwitcher: React.FC<WordsSwitcherProps> = ({ wordClassName, words }) => {

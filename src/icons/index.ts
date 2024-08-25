@@ -2,8 +2,10 @@ import './icon.styles.sass'
 
 export { BehanceIcon } from './behance'
 export { DribbbleIcon } from './dribbble'
+export { GoogleIcon } from './google'
 export { InstagramIcon } from './instagram'
 export { LinkedinIcon } from './linkedin'
+export { MicrosoftIcon } from './microsoft'
 
 export type IconProps = React.ComponentProps<'svg'> & {
   size?: number

@@ -1,0 +1,17 @@
+.marquee
+  display: flex
+  gap: var(--marquee-gap, 25vw)
+  min-width: 100%
+  overflow: hidden
+
+  &-items-wrapper
+    animation: marquee-scroll var(--marquee-animation-duration, 20s) linear infinite
+    align-items: center
+    display: flex
+    flex-shrink: 0
+    gap: var(--marquee-gap, 25vw)
+    user-select: none
+
+@keyframes marquee-scroll
+  to
+    transform: translateX(calc(-100% - var(--marquee-gap, 25vw)))

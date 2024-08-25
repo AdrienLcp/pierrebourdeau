@@ -3,6 +3,7 @@
 import React from 'react'
 
 import { WordsSwitcher } from '@/animations/words-switcher'
+import { ClientsCarousel } from '@/experiences/clients-carousel'
 
 import './home-hero.styles.sass'
 
@@ -20,14 +21,6 @@ export const HomeHero: React.FC = () => {
       </div>
 
       <div className='home-hero__row second'>
-        {/* <span className='home-hero__main-display'>
-          EXPERIENCE
-        </span>
-
-        <span className='home-hero__main-display'>
-          INTERFACE
-        </span> */}
-
         <WordsSwitcher
           wordClassName='home-hero__main-display'
           words={['EXPERIENCE', 'INTERFACE']}
@@ -37,6 +30,8 @@ export const HomeHero: React.FC = () => {
       <div className='home-hero__row'>
         <span className='home-hero__main-display'>DESIGNER</span>
       </div>
+
+      <ClientsCarousel />
     </>
   )
 }
