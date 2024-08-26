@@ -7,7 +7,7 @@ import type SwiperCore from 'swiper'
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react'
 
 import { Button } from '@/components/button'
-import { classNames, Style } from '@/helpers/styles'
+import { classNames, type Style } from '@/helpers/styles'
 import { useI18n } from '@/i18n/client'
 
 import './carousel.styles.sass'
@@ -101,13 +101,11 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
         onChange={(value) => handleSlideChange(value)}
         maxValue={slideCount - 1}
         minValue={0}
-        value={currentSlideIndex}
         style={carouselSliderThumbStyle}
+        value={currentSlideIndex}
       >
         <SliderTrack className='carousel__slider__track'>
-          <SliderThumb
-            className='carousel__slider__track__thumb'
-          />
+          <SliderThumb className='carousel__slider__track__thumb' />
         </SliderTrack>
       </Slider>
     </section>
