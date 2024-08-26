@@ -7,10 +7,11 @@ import type SwiperCore from 'swiper'
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react'
 
 import { Button } from '@/components/button'
-import { classNames } from '@/helpers/styles'
+import { classNames, Style } from '@/helpers/styles'
 import { useI18n } from '@/i18n/client'
 
 import './carousel.styles.sass'
+import 'swiper/css'
 
 type CarouselProps = Omit<SwiperProps, 'children'> & {
   children: Array<React.ReactNode>
@@ -24,6 +25,10 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
   const swiperRef = React.useRef<SwiperCore | null>(null)
 
   const slideCount = children.length
+
+  if (slideCount === 0) {
+    return null
+  }
 
   const handleSlideChange = (index: number) => {
     setCurrentSlideIndex(index)
@@ -42,18 +47,21 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
     }
   }
 
-  if (slideCount === 0) {
-    return null
+  const carouselTrackWidth = 100
+  const carouselThumbWidth = carouselTrackWidth / slideCount
+
+  const carouselSliderThumbStyle: Style = {
+    '--carousel-thumb-width': `${carouselThumbWidth}px`,
+    '--carousel-track-width': `${carouselTrackWidth}px`
   }
 
   return (
     <section
       aria-label={i18n('experiences.projects.carousel.aria-label')}
-      className='carousel'
+      className={classNames('carousel', className)}
     >
       <Swiper
         {...props}
-        className={classNames('carousel__swiper', className)}
         onSlideChange={({ realIndex }) => setCurrentSlideIndex(realIndex)}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         slidesPerView={1}
@@ -94,9 +102,12 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
         maxValue={slideCount - 1}
         minValue={0}
         value={currentSlideIndex}
+        style={carouselSliderThumbStyle}
       >
-        <SliderTrack>
-          <SliderThumb />
+        <SliderTrack className='carousel__slider__track'>
+          <SliderThumb
+            className='carousel__slider__track__thumb'
+          />
         </SliderTrack>
       </Slider>
     </section>

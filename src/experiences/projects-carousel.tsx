@@ -20,12 +20,9 @@ export const ProjectsCarousel: React.FC = () => {
 
       <div className='projects-carousel__content'>
         <Carousel>
-          <span>test 1</span>
-          <span>test 2</span>
-          <span>test 3</span>
-          <span>test 4</span>
-          <span>test 5</span>
-          <span>test 6</span>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <span key={index}>test {index + 1}</span>
+          ))}
         </Carousel>
 
         <LinkButton

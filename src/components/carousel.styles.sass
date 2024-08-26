@@ -1,8 +1,28 @@
 @import '@/styles/typography'
 
 .carousel
+
   &__controls
     @include body
     align-items: center
     display: flex
     gap: var(--spacing-xs, 16px)
+    justify-content: center
+    margin-block: var(--spacing-xs, 16px)
+
+  &__slider__track
+    background-color: var(--neutral-background-secondary-rest, #DFE3E1)
+    border-radius: var(--radius-circular, 99px)
+    cursor: pointer
+    height: 8px
+    margin: 0 auto var(--spacing-xs, 16px)
+    width: 100px
+
+    &__thumb
+      background-color: var(--neutral-foreground-primary-rest, #171716)
+      border-radius: var(--radius-circular, 99px)
+      height: 100%
+      top: 50%
+      position: relative
+      transition: inset var(--transition-200) var(--timing, ease-in-out)
+      width: var(--carousel-thumb-width, 100%)
