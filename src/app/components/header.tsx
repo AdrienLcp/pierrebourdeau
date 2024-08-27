@@ -23,19 +23,30 @@ const HEADER_ANIMATION_DURATION_IN_MS = 300
 export const Header: React.FC = () => {
   const [isAvailabilityHidden, setIsAvailabilityHidden] = React.useState(false)
   const [isHeaderExpanded, setIsHeaderExpanded] = React.useState(false)
+  const [isContentHidden, setIsContentHidden] = React.useState(true)
 
   const { i18n } = useI18n()
 
   const headerContentRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    if (headerContentRef.current) {
-      gsap.to(headerContentRef.current, {
-        duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
-        ease: DEFAULT_ANIMATION_EASE,
-        height: isHeaderExpanded ? `calc(100vh - ${HEADER_REST_HEIGHT_IN_PX}px)` : 0
-      })
+    if (!headerContentRef.current === null) {
+      return
     }
+
+    if (!isHeaderExpanded) {
+      setTimeout(() => {
+        setIsContentHidden(true)
+      }, HEADER_ANIMATION_DURATION_IN_MS)
+    } else {
+      setIsContentHidden(false)
+    }
+
+    gsap.to(headerContentRef.current, {
+      duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
+      ease: DEFAULT_ANIMATION_EASE,
+      height: isHeaderExpanded ? `calc(100vh - ${HEADER_REST_HEIGHT_IN_PX}px)` : 0
+    })
   }, [isHeaderExpanded])
 
   React.useEffect(() => {
@@ -75,7 +86,7 @@ export const Header: React.FC = () => {
 
       <div
         aria-hidden={!isHeaderExpanded}
-        className={classNames('header__content', !isHeaderExpanded && 'hidden')}
+        className={classNames('header__content', isContentHidden && 'hidden')}
         ref={headerContentRef}
       >
         <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />

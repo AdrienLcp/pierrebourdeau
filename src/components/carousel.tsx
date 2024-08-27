@@ -47,12 +47,12 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
     }
   }
 
-  const carouselTrackWidth = 100
-  const carouselThumbWidth = carouselTrackWidth / slideCount
+  const carouselTrackWidthInPx = 100
+  const carouselThumbWidthInPx = carouselTrackWidthInPx / slideCount
 
   const carouselSliderThumbStyle: Style = {
-    '--carousel-thumb-width': `${carouselThumbWidth}px`,
-    '--carousel-track-width': `${carouselTrackWidth}px`
+    '--carousel-thumb-width': `${carouselThumbWidthInPx}px`,
+    '--carousel-track-width': `${carouselTrackWidthInPx}px`
   }
 
   return (
@@ -98,9 +98,8 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className, ...prop
       <Slider
         aria-label={i18n('experiences.projects.carousel.slider-aria-label')}
         className='carousel__slider'
-        onChange={(value) => handleSlideChange(value)}
         maxValue={slideCount - 1}
-        minValue={0}
+        onChange={(value) => handleSlideChange(value)}
         style={carouselSliderThumbStyle}
         value={currentSlideIndex}
       >
