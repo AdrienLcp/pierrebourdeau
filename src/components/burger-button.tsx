@@ -4,7 +4,10 @@ import { gsap } from 'gsap'
 import React from 'react'
 import type { ButtonProps } from 'react-aria-components'
 
-import { DEFAULT_ANIMATION_DURATION, DEFAULT_ANIMATION_EASE } from '@/animations'
+import {
+  DEFAULT_ANIMATION_DURATION,
+  DEFAULT_ANIMATION_EASE,
+} from '@/animations'
 import { Pressable } from '@/components/pressable'
 import { useI18n } from '@/i18n/client'
 import { getReactAriaClassName } from '@/lib/react-aria'
@@ -15,8 +18,13 @@ type BurgerButtonProps = ButtonProps & {
   isActive?: boolean
 }
 
-export const BurgerButton: React.FC<BurgerButtonProps> = ({ className, isActive, ...props }) => {
-  const [isBurgerButtonHovered, setIsBurgerButtonHovered] = React.useState(false)
+export const BurgerButton: React.FC<BurgerButtonProps> = ({
+  className,
+  isActive,
+  ...props
+}) => {
+  const [isBurgerButtonHovered, setIsBurgerButtonHovered] =
+    React.useState(false)
 
   const { i18n } = useI18n()
 
@@ -29,7 +37,7 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({ className, isActive,
         ease: DEFAULT_ANIMATION_EASE,
         duration: DEFAULT_ANIMATION_DURATION,
         rotate: isActive ? '45deg' : 0,
-        y: isActive ? '0' : isBurgerButtonHovered ? '-8px' : '-5px'
+        y: isActive ? '0' : isBurgerButtonHovered ? '-8px' : '-5px',
       })
     }
   }, [isActive, isBurgerButtonHovered])
@@ -40,7 +48,7 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({ className, isActive,
         ease: DEFAULT_ANIMATION_EASE,
         duration: DEFAULT_ANIMATION_DURATION,
         rotate: isActive ? '-45deg' : 0,
-        y: isActive ? '0' : isBurgerButtonHovered ? '8px' : '5px'
+        y: isActive ? '0' : isBurgerButtonHovered ? '8px' : '5px',
       })
     }
   }, [isActive, isBurgerButtonHovered])
@@ -55,11 +63,13 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({ className, isActive,
       aria-hidden
       aria-label={ariaLabel}
       aria-pressed={isActive}
-      className={values => getReactAriaClassName(values, className, 'burger-button')}
+      className={(values) =>
+        getReactAriaClassName(values, className, 'burger-button')
+      }
       onHoverChange={setIsBurgerButtonHovered}
     >
-      <span ref={firstLineRef} className='burger-button__line' />
-      <span ref={secondLineRef} className='burger-button__line' />
+      <span ref={firstLineRef} className="burger-button__line" />
+      <span ref={secondLineRef} className="burger-button__line" />
     </Pressable>
   )
 }

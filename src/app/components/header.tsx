@@ -33,7 +33,9 @@ export const Header: React.FC = () => {
       gsap.to(headerContentRef.current, {
         duration: HEADER_ANIMATION_DURATION_IN_MS / 1000,
         ease: DEFAULT_ANIMATION_EASE,
-        height: isHeaderExpanded ? `calc(100vh - ${HEADER_REST_HEIGHT_IN_PX}px)` : 0
+        height: isHeaderExpanded
+          ? `calc(100vh - ${HEADER_REST_HEIGHT_IN_PX}px)`
+          : 0,
       })
     }
   }, [isHeaderExpanded])
@@ -52,24 +54,24 @@ export const Header: React.FC = () => {
 
   return (
     <header className={classNames('header', isHeaderExpanded && 'expanded')}>
-      <div className='header__heading'>
+      <div className="header__heading">
         <Link
           aria-label={i18n('app.header.logo-link')}
-          className='header__heading__link'
+          className="header__heading__link"
           href={ROUTES.home}
         >
-          <Logo className='header__heading__link__logo' />
+          <Logo className="header__heading__link__logo" />
         </Link>
 
         <Availability
           isHidden={isAvailabilityHidden || isHeaderExpanded}
-          status='available'
+          status="available"
         />
 
         <BurgerButton
           className={classNames('header__heading__burger-button')}
           isActive={isHeaderExpanded}
-          onPress={() => setIsHeaderExpanded(previousValue => !previousValue)}
+          onPress={() => setIsHeaderExpanded((previousValue) => !previousValue)}
         />
       </div>
 
@@ -80,9 +82,9 @@ export const Header: React.FC = () => {
       >
         <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />
 
-        <div className='header__content__footer'>
+        <div className="header__content__footer">
           <LocaleSwitcher />
-          <Mailto className='header__content__footer__mailto' />
+          <Mailto className="header__content__footer__mailto" />
         </div>
       </div>
     </header>
