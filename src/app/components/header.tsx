@@ -62,40 +62,43 @@ export const Header: React.FC = () => {
   }, [])
 
   return (
-    <header className={classNames('header', isHeaderExpanded && 'expanded')}>
-      <div className='header__heading'>
-        <Link
-          aria-label={i18n('app.header.logo-link')}
-          className='header__heading__link'
-          href={ROUTES.home}
-        >
-          <Logo className='header__heading__link__logo' />
-        </Link>
+    <>
+      <Availability
+        className='header__availability'
+        isHidden={isAvailabilityHidden || isHeaderExpanded}
+        status='available'
+      />
 
-        <Availability
-          isHidden={isAvailabilityHidden || isHeaderExpanded}
-          status='available'
-        />
+      <header className={classNames('header', isHeaderExpanded && 'expanded')}>
+        <div className='header__heading'>
+          <Link
+            aria-label={i18n('app.header.logo-link')}
+            className='header__heading__link'
+            href={ROUTES.home}
+          >
+            <Logo className='header__heading__link__logo' />
+          </Link>
 
-        <BurgerButton
-          className={classNames('header__heading__burger-button')}
-          isActive={isHeaderExpanded}
-          onPress={() => setIsHeaderExpanded(previousValue => !previousValue)}
-        />
-      </div>
-
-      <div
-        aria-hidden={!isHeaderExpanded}
-        className={classNames('header__content', isContentHidden && 'hidden')}
-        ref={headerContentRef}
-      >
-        <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />
-
-        <div className='header__content__footer'>
-          <LocaleSwitcher />
-          <Mailto className='header__content__footer__mailto' />
+          <BurgerButton
+            className={classNames('header__heading__burger-button')}
+            isActive={isHeaderExpanded}
+            onPress={() => setIsHeaderExpanded(previousValue => !previousValue)}
+          />
         </div>
-      </div>
-    </header>
+
+        <div
+          aria-hidden={!isHeaderExpanded}
+          className={classNames('header__content', isContentHidden && 'hidden')}
+          ref={headerContentRef}
+        >
+          <Navigation onLinkClick={() => setIsHeaderExpanded(false)} />
+
+          <div className='header__content__footer'>
+            <LocaleSwitcher />
+            <Mailto className='header__content__footer__mailto' />
+          </div>
+        </div>
+      </header>
+    </>
   )
 }

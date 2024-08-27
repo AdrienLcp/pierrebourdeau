@@ -8,11 +8,25 @@ import { ImageFallbackIcon } from '@/icons/image-fallback'
 
 import './image.styles.sass'
 
-const DEFAULT_IMAGE_SIZE = 52
+type ImageHeight = NextImageProps['height']
+export type ImageSrc = NextImageProps['src'] | null | undefined
+type ImageWidth = NextImageProps['width']
+
+// Override the default `src` prop to allow for `null` values
+type ImageProps = Omit<NextImageProps, 'src'> & {
+  src: ImageSrc
+}
+
+export type ImageObj = {
+  alt: NextImageProps['alt']
+  height: ImageHeight
+  src: ImageSrc
+  width: ImageWidth
+}
 
 type ImageFallbackProps = {
-  height: NextImageProps['height']
-  width: NextImageProps['width']
+  height: ImageHeight
+  width: ImageWidth
 }
 
 const ImageFallback: React.FC<ImageFallbackProps> = ({ height, width }) => (
@@ -21,19 +35,12 @@ const ImageFallback: React.FC<ImageFallbackProps> = ({ height, width }) => (
   </span>
 )
 
-export type ImageSrc = NextImageProps['src'] | null | undefined
-
-// Override the default `src` prop to allow for `null` values
-type ImageProps = Omit<NextImageProps, 'src'> & {
-  src: ImageSrc
-}
-
 export const Image: React.FC<ImageProps> = ({
   className,
-  height = DEFAULT_IMAGE_SIZE,
+  height,
   onError,
   src,
-  width = DEFAULT_IMAGE_SIZE,
+  width,
   ...props
 }) => {
   const [hasImageError, setHasImageError] = React.useState<boolean>(false)

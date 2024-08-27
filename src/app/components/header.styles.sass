@@ -3,10 +3,10 @@
 
 .header
   @include color-transition
-  background-color: var(--neutral-background-primary-rest, #FCFFFD)
   display: flex
   flex-direction: column
   inset: 0 0 auto 0
+  mix-blend-mode: difference
   overflow: hidden
   position: fixed
   z-index: 1
@@ -21,10 +21,21 @@
     &__link
       outline-offset: var(--spacing-xs, 16px)
 
+      &__logo path
+        fill: var(--neutral-foreground-inverted-rest, #FCFFFD)
+
+    &__burger-button span
+      background-color: var(--neutral-foreground-inverted-rest, #FCFFFD)
+
   &__content
     display: flex
     flex-direction: column
     height: 100%
+    opacity: 1
+    transition: opacity var(--transition-200, 0) var(--timing, ease-in-out)
+
+    &[aria-hidden='true']
+      opacity: 0
 
     &.hidden
       @include hidden
@@ -42,10 +53,4 @@
   &.expanded
     background-color: var(--neutral-background-inverted-rest, #171716)
     color: var(--neutral-foreground-inverted-rest, #FCFFFD)
-
-    & .header__heading
-      &__link__logo path
-        fill: var(--neutral-foreground-inverted-rest, #FCFFFD)
-
-      &__burger-button span
-        background-color: var(--neutral-foreground-inverted-rest, #FCFFFD)
+    mix-blend-mode: normal

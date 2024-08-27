@@ -2,6 +2,9 @@
   align-items: center
   display: flex
   gap: 10px
+  inset: var(--header-rest-height, 146px) auto auto 50%
+  position: fixed
+  transform: translate(-50%, calc(calc(var(--header-rest-height, 146px) / 2) * -1))
   transition-property: opacity, transform
   transition-duration: var(--transition-200, 0)
   transition-timing-function: var(--timing, ease-in-out)
@@ -9,4 +12,4 @@
   &.hidden
     opacity: 0
     pointer-events: none
-    transform: translateY(-100%)
+    transform: translate(-50%, calc(var(--header-rest-height, 146px) * -1))
